@@ -1,0 +1,10 @@
+<h1>Flickr API</h1>
+
+<%= form_with scope: :search, method: :get do |f| %>
+  <%= f.text_field :user_id, placeholder: 'Enter Flickr ID here...' %>
+  <%= f.submit 'Search' %>
+<% end %>
+
+<% @photos.each do |photo| %>
+  <img src="<%= Flickr.url_n(photo) %>">
+<% end %>
