@@ -1,0 +1,17 @@
+<%= form_with scope: :search, method: :get do |f| %>
+  <div class="field is-grouped is-grouped-centered">
+
+    <div class="control">
+      <%= f.text_field :user_id, placeholder: 'Enter Flickr ID here...', class: 'input' %>
+    </div>
+
+    <div class="control">
+      <%= f.submit 'Search for Photos', class: 'button is-light' %>
+    </div>
+
+  </div>
+
+  <p class="help has-text-centered has-text-white">Enter a valid Flickr ID or recent public photos will be displayed</p>
+
+<% end %>
+

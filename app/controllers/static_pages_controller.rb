@@ -3,10 +3,10 @@ class StaticPagesController < ApplicationController
 
   def index
     flickr = Flickr.new
-    unless params[:search][:user_id].blank?
-      @photos = flickr.photos.search(user_id: params[:search][:user_id])
-    else
+    if !params[:search].present? || params[:search][:user_id].blank?
       @photos = flickr.photos.getRecent
+    else
+      @photos = flickr.photos.search(user_id: params[:search][:user_id])
     end
   end
 end
